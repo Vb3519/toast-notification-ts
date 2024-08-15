@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my-toast-notification-app</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="app-page">
+        <div class="app-page__btns app-btns">
+            <button onclick="showToastMsg(success_msg)" class="app-btns__success success-btn btn">Success</button>
+            <button onclick="showToastMsg(error_msg)" class="app-btns__error error-btn btn">Error</button>
+            <button onclick="showToastMsg(invalid_msg)" class="app-btns__invalid invalid-btn btn">Invalid</button>
+        </div>
+
+        <div class="app-page__msgs app-msgs">
+
+            <div id="success_msg" class="app-msgs__success success-msg msg">
+                <div class="msg__inner">
+                    <div class="msg__inner__label success-label">                        
+                        <i class="fa-regular fa-square-check"></i> <!-- [V] -->
+                    </div>
+                    <span>
+                        Successfully submitted
+                    </span>
+                    <div class="msg__inner__timeline success-timeline"></div>
+                </div>
+            </div>
+
+            <div id="error_msg" class="app-msgs__error error-msg msg">
+                <div class="msg__inner">
+                    <div class="msg__inner__label error-label">                        
+                        <i class="fa-solid fa-exclamation"></i> <!-- [ ! ] -->
+                    </div>
+                    <span>
+                        Please fix the error                            
+                    </span>
+                    <div class="msg__inner__timeline error-timeline"></div>
+                </div>
+            </div>
+
+            <div id="invalid_msg" class="app-msgs__invalid invalid-msg msg">
+                <div class="msg__inner">
+                    <div class="msg__inner__label invalid-label">                        
+                        <i class="fa-solid fa-xmark"></i> <!-- [X] -->
+                    </div>
+                    <span>
+                        Invalid information                            
+                    </span>
+                    <div class="msg__inner__timeline invalid-timeline"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

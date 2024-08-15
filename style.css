@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    margin: 0;
+}
+
+.app-page {
+    width: 100%;
+    height: 100vh;
+    background: #f1f1f1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+/* кнопки: */
+.app-page__btns {
+    margin-top: 2rem;
+    margin-left: 2rem;
+    display: flex;                
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.btn {
+    height: 2.5rem;
+    width: 30%;
+    min-width: 70px;
+    background: black;
+    color: white;
+    border: 1px solid gray;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn:disabled {
+    background: gray;
+}
+
+/* сообщения: */
+.app-page__msgs {
+    align-self: end;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;                
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+}
+
+.msg {
+    display: none;
+    align-items: center;                
+    width: 100%;
+    max-width: 475px;
+    min-width: 250px;
+    border: 2px solid black;
+    position: relative;
+    padding: 0.5rem;
+    background: #fcfcfc;
+    box-shadow: 3px 4px 5px black; /* X, Y, размытие, цвет */
+}
+
+.msg-active {
+    display: block;
+}
+
+.msg__inner {
+    display: flex;
+    gap: 0.5rem;
+    height: 3rem;
+    align-items: center;
+}
+
+.msg__inner > span {
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+
+.msg__inner__label {
+    cursor: pointer;   
+    font-size: 1.7rem;
+    width: 8%;
+    display: flex;
+    justify-content: center;
+}
+
+.invalid-label, .error-label {
+    color: #ab0000;    
+    font-family: 'Poppins', sans-serif;
+}
+
+.success-label {
+    color: green;    
+    font-family: 'Poppins', sans-serif;                
+}
+
+/*  --- АНИМАЦИИ ---  */
+
+/* уменьшение прозрачности и движение уведомления наверх: */
+/* ------------------------------------------------------ */
+@keyframes move-top {
+    0% {
+        top: 0;
+        opacity: 1
+    }
+
+    100% {
+        top: -50px;
+        opacity: 0;
+    }
+}
+
+.app-msgs__success, .app-msgs__error, .app-msgs__invalid {
+    animation: move-top 1.5s;
+    animation-delay: 0.5s;
+    animation-iteration-count: 1;
+}
+
+/* заполнение линии тайминга уведомления */
+/* ------------------------------------- */
+@keyframes fill-timelime {
+    0% {
+        width: 0%;
+    }
+
+     100% {
+        width: 100%;
+    }
+}
+
+.msg__inner__timeline {
+    animation: fill-timelime 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1
+}
+
+.msg__inner__timeline {
+    /* width: 100%; */
+    height: 0.5rem;
+    background: green;
+    position: absolute;
+    bottom: 0;
+    left: 0;                
+}
+
+.error-timeline, .invalid-timeline {
+    background: #ab0000;
+}
